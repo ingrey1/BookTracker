@@ -1,19 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
+/*
 
-const CollectionMenu = (props) => {
+	Displays options available for a book that lives in the general search collection
 
-	console.log("collection menu created!")
-	console.log(props)
-	return (
+*/ 
 
+const CollectionMenu = props => {
 
-		<div id="cMenu" onClick={() => props.addBook(props.bookInfo)}>Add Book To Your Collection</div>
+  return (
+    <div id="cMenu" onClick={() => props.addBook(props.bookInfo)}>
+      Add Book To Your Collection
+    </div>
+  );
+};
 
-		)
-
-
-}
-
-export default CollectionMenu
+export default CollectionMenu;

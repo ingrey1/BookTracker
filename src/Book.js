@@ -4,13 +4,14 @@ import CollectionMenu from './CollectionMenu.js'
 
 const Book = (props) => {
 
-	let showMenu = false
-	let showCollectionMenu = false
+	let showMenu = false; // determines whether the personal collection menu is shown
+	let showCollectionMenu = false; // determines whether the general search menu is shown
+	// if this book has been clicked
 	if ((props.selectedBook != null) && (props.bookInfo.id === props.selectedBook.id)) {
-		showMenu = true
+		showMenu = true;
 	} 
-	if (props.selectedBook != null) console.log(props.selectedBook.id)
-	if (props.bookInfo.shelf === undefined) showCollectionMenu = true
+	// if this book has been clicked and it currently lives in the general search collection
+	if (props.bookInfo.shelf === undefined) showCollectionMenu = true;
 
 	return (
 
@@ -24,9 +25,8 @@ const Book = (props) => {
 
 
 	   } onClick={() => {
-
-	   	console.log(props)
-	    props.bookShelfHandler(props.bookInfo)
+	   	
+	    props.bookShelfHandler(props.bookInfo);
 	    
 	  } 
 
