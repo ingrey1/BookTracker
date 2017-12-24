@@ -35,6 +35,7 @@ class App extends Component {
 
   	this.state = {
         selectedBook: null,
+        showInfo: false,
   		currentlyReading: [],
   		read: [],
   		wantToRead: [],
@@ -52,7 +53,8 @@ class App extends Component {
 
   updateSelectedBook(book) {
     if (book != null) {
-        this.setState({selectedBook: book})
+        this.setState({selectedBook: book,
+                        showInfo: false})
     }
   
   }	
@@ -137,7 +139,8 @@ class App extends Component {
   showBookMenu(book, shelf) {
 
     this.updateSelectedBook(book)
-    if ((shelf !== "delete") && (shelf != null) && (shelf != book.shelf)) this.updateBookShelf(book, shelf)
+    if (shelf === "info") this.setState({showInfo: true})
+    else if ((shelf !== "delete") && (shelf != null) && (shelf != book.shelf)) this.updateBookShelf(book, shelf)
     else if (shelf === "delete") this.deleteBook(book) 
 
   }
@@ -211,9 +214,9 @@ class App extends Component {
       (
       <div>  
      <Link to="/search" >Add Books</Link>    
-     <CurrentlyReading selectedBook={this.state.selectedBook} bookShelfHandler={this.showBookMenu} books={this.state.currentlyReading} />
-     <WantToRead selectedBook={this.state.selectedBook} bookShelfHandler={this.showBookMenu} books={this.state.wantToRead} />
-     <AlreadyRead selectedBook={this.state.selectedBook} bookShelfHandler={this.showBookMenu} books={this.state.read} />
+     <CurrentlyReading showInfo={this.state.showInfo} selectedBook={this.state.selectedBook} bookShelfHandler={this.showBookMenu} books={this.state.currentlyReading} />
+     <WantToRead showInfo={this.state.showInfo} selectedBook={this.state.selectedBook} bookShelfHandler={this.showBookMenu} books={this.state.wantToRead} />
+     <AlreadyRead showInfo={this.state.showInfo} selectedBook={this.state.selectedBook} bookShelfHandler={this.showBookMenu} books={this.state.read} />
       </div>)
 
      }

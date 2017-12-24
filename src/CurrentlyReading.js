@@ -13,7 +13,7 @@ import PropTypes from 'prop-types'
 		
 		<h2>Currently Reading</h2>
 		
-			{props.books.map( (book, k) => <Book selectedBook={props.selectedBook} bookShelfHandler={props.bookShelfHandler} key={k} bookInfo={book} />)}
+			{props.books.map( (book, k) => <Book showInfo={props.showInfo} selectedBook={props.selectedBook} bookShelfHandler={props.bookShelfHandler} key={k} bookInfo={book} />)}
 		
 		</div>
 

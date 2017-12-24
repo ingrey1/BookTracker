@@ -1,6 +1,5 @@
 import React from 'react'
 import BookMenu from './BookMenu.js'
-import PropTypes from 'prop-types'
 import CollectionMenu from './CollectionMenu.js'
 
 const Book = (props) => {
@@ -33,7 +32,7 @@ const Book = (props) => {
 
 	     }
 	  /> 
-	    { showMenu && !showCollectionMenu && (<BookMenu bookInfo={props.bookInfo} bookShelfHandler={props.bookShelfHandler} />)}
+	    { showMenu && !showCollectionMenu && (<BookMenu showInfo={props.showInfo} bookInfo={props.bookInfo} bookShelfHandler={props.bookShelfHandler} />)}
 	    { showMenu && showCollectionMenu && (<CollectionMenu addBook={props.addBook} bookInfo={props.bookInfo} bookShelfHandler={props.bookShelfHandler} />)}
 
 		</li>	

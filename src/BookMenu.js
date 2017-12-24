@@ -1,5 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
+import BookInfo from './BookInfo.js'
 
 const BookMenu = (props) => {
 
@@ -16,22 +17,29 @@ const BookMenu = (props) => {
 	}
 
 	console.log("creating BookMenu")
+	console.log("showinfo: " + props.showInfo)
 	return (
 
 
-		<div id="popUpDiv">
-
-			<select defaultValue="default" size="4" id="popUpSelect" onChange={(e) => {props.bookShelfHandler(props.bookInfo, e.target.value)}
+			<div>
+			{!props.showInfo && (<div id="popUpDiv"><select defaultValue="default" size="4" id="popUpSelect" onChange={(e) => {props.bookShelfHandler(props.bookInfo, e.target.value)}
 
 			}>
+			  <option value="info">Info</option>
+			  <option value="delete">Delete</option>	
 			  <option value="default" disabled="disabled">Move To</option>
 			  <option value={moveLocations[0]}>{moveLocations[0]}</option>
 			  <option value={moveLocations[1]}>{moveLocations[1]}</option>
-			  <option value="delete">Delete</option>
 			  
-			</select>
+			  
+			</select>)</div>)}
 
-		</div>
+			{props.showInfo && <BookInfo book={props.bookInfo} />}
+
+			</div>
+
+
+
 	);
 
 

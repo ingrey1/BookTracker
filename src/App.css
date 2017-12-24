@@ -34,3 +34,15 @@ button {
   margin-bottom: 15px;
 }
 
+.bookLabel {
+  font-weight: bold;
+}
+
+#infoDiv {
+  position: absolute;
+  background: gray;
+  z-index: 1000;
+  max-width: 400px;
+  max-height: 800px;
+}
+

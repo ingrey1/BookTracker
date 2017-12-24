@@ -13,7 +13,7 @@ const AlreadyRead = (props) => {
 
 		<h2>Already Read</h2>
 		
-			{props.books.map( (book, k) => <Book bookShelfHandler={props.bookShelfHandler} selectedBook={props.selectedBook} onClick={() => props.showBookMenu(book)} key={k} bookInfo={book} />)}
+			{props.books.map( (book, k) => <Book showInfo={props.showInfo} bookShelfHandler={props.bookShelfHandler} selectedBook={props.selectedBook} onClick={() => props.showBookMenu(book)} key={k} bookInfo={book} />)}
 		
 		</div>
 

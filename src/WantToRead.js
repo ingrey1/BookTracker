@@ -13,7 +13,7 @@ const WantToRead = (props) => {
 
 		<h2>Want To Read</h2>
 		
-			{props.books.map( (book, k) => <Book bookShelfHandler={props.bookShelfHandler} selectedBook={props.selectedBook} key={k} bookInfo={book} />)}
+			{props.books.map( (book, k) => <Book showInfo={props.showInfo} bookShelfHandler={props.bookShelfHandler} selectedBook={props.selectedBook} key={k} bookInfo={book} />)}
 		
 		</div>
 
