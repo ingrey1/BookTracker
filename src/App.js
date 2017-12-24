@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import CurrentlyReading from './CurrentlyReading.js' 
-import BookMenu from './BookMenu.js'
 import AlreadyRead from './AlreadyRead.js'
 import WantToRead from './WantToRead.js'
-import {get, getAll, update} from './BooksAPI.js'
+import {getAll, update} from './BooksAPI.js'
 import Search from "./Search.js"
 import {Link, Route} from 'react-router-dom'
 import './App.css'
@@ -111,7 +110,7 @@ class App extends Component {
 
 
    addBook(book) {
-      if ((book != undefined) && (this.getBook(book.id) == undefined)) {
+      if ((book !== undefined) && (this.getBook(book.id) === undefined)) {
         book.shelf = 'wantToRead'
          
         this.setState(
@@ -129,7 +128,7 @@ class App extends Component {
 
   showCollectionMenu(book) {
     console.log("showCollection Menu called!")
-    if (book != undefined) {
+    if (book !== undefined) {
      this.setState({selectedBook: book})
   }
   }
@@ -225,7 +224,7 @@ class App extends Component {
      <Route path="/search" render={ () =>
 
 
-        <Search getBook={this.getBook} addBook={this.addBook} selectedBook={this.state.selectedBook} bookShelfHandler={this.showCollectionMenu} addBook={this.addBook} updateSearchStatus={this.updateSearchStatus} />
+        <Search getBook={this.getBook} addBook={this.addBook} selectedBook={this.state.selectedBook} bookShelfHandler={this.showCollectionMenu} updateSearchStatus={this.updateSearchStatus} />
 
 
      } />

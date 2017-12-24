@@ -1,12 +1,12 @@
 import React from 'react'
 import Book from './Book.js'
-import sortBy from 'sort-by'
-import CollectionMenu from './CollectionMenu.js'
+import PropTypes from 'prop-types'
+
 
 
 const SearchResults = (props) => {
 
-	const sortedBooks = props.books.filter(book => props.getBook(book.id) == undefined)
+	const sortedBooks = props.books.filter(book => props.getBook(book.id) === undefined)
 
 	console.log("search results addBook" + props.addBook)
 	return (

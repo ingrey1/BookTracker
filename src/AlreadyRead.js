@@ -1,18 +1,10 @@
 import React from 'react'
 import Book from './Book.js'
+import PropTypes from 'prop-types'
 
 
-class AlreadyRead extends React.Component {
+const AlreadyRead = (props) => {
 
-
-	constructor(props) {
-
-		super(props);
-
-	}
-
-
-	render() {
 
 
 		return (
@@ -21,7 +13,7 @@ class AlreadyRead extends React.Component {
 
 		<h2>Already Read</h2>
 		
-			{this.props.books.map( (book, k) => <Book bookShelfHandler={this.props.bookShelfHandler} selectedBook={this.props.selectedBook} onClick={() => this.props.showBookMenu(book)} key={k} bookInfo={book} />)}
+			{props.books.map( (book, k) => <Book bookShelfHandler={props.bookShelfHandler} selectedBook={props.selectedBook} onClick={() => props.showBookMenu(book)} key={k} bookInfo={book} />)}
 		
 		</div>
 
@@ -34,6 +26,6 @@ class AlreadyRead extends React.Component {
 }
 
 
-}
+
 
 export default AlreadyRead

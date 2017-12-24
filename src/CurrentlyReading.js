@@ -1,18 +1,11 @@
 import React from 'react'
 import Book from './Book.js'
-import {getAll} from './BooksAPI.js'
+import PropTypes from 'prop-types'
 
- class CurrentlyReading extends React.Component {
-
-
-	constructor(props) {
-
-		super(props);
-
-	}
+ const CurrentlyReading = (props) => {
 
 
-	render() {
+	
 
 		return (
 
@@ -20,7 +13,7 @@ import {getAll} from './BooksAPI.js'
 		
 		<h2>Currently Reading</h2>
 		
-			{this.props.books.map( (book, k) => <Book selectedBook={this.props.selectedBook} bookShelfHandler={this.props.bookShelfHandler} key={k} bookInfo={book} />)}
+			{props.books.map( (book, k) => <Book selectedBook={props.selectedBook} bookShelfHandler={props.bookShelfHandler} key={k} bookInfo={book} />)}
 		
 		</div>
 
@@ -29,7 +22,7 @@ import {getAll} from './BooksAPI.js'
 
 		);
 
-}
+
 
 
 }

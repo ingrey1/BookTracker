@@ -1,5 +1,6 @@
 import React from 'react'
 import BookMenu from './BookMenu.js'
+import PropTypes from 'prop-types'
 import CollectionMenu from './CollectionMenu.js'
 
 const Book = (props) => {
@@ -10,7 +11,7 @@ const Book = (props) => {
 		showMenu = true
 	} 
 	if (props.selectedBook != null) console.log(props.selectedBook.id)
-	if (props.bookInfo.shelf == undefined) showCollectionMenu = true
+	if (props.bookInfo.shelf === undefined) showCollectionMenu = true
 
 	return (
 

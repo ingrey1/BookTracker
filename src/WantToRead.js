@@ -1,25 +1,19 @@
 import React from 'react';
 import Book from './Book.js';
+import PropTypes from 'prop-types'
 
 
-export default class WantToRead extends React.Component {
+const WantToRead = (props) => {
 
 
-	constructor(props) {
-
-		super(props);
-
-	}
-
-
-	render() {
+	
 		return (
 
 		<div>
 
 		<h2>Want To Read</h2>
 		
-			{this.props.books.map( (book, k) => <Book bookShelfHandler={this.props.bookShelfHandler} selectedBook={this.props.selectedBook} key={k} bookInfo={book} />)}
+			{props.books.map( (book, k) => <Book bookShelfHandler={props.bookShelfHandler} selectedBook={props.selectedBook} key={k} bookInfo={book} />)}
 		
 		</div>
 
@@ -31,7 +25,9 @@ export default class WantToRead extends React.Component {
 
 	
 
-	}	
+
 
 
 }
+
+export default WantToRead

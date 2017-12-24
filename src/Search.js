@@ -1,9 +1,9 @@
 import React from 'react'
 import SearchBar from './SearchBar.js'
 import {search} from './BooksAPI.js'
+import PropTypes from 'prop-types'
 import SearchResults from './SearchResults.js'
 import escapeRegExp from 'escape-string-regexp';
-import sortBy from 'sort-by'
 import {Link} from 'react-router-dom'
 
 
