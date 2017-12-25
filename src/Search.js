@@ -47,7 +47,7 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-        <Link to="/">Go To Personal Collection</Link>
+        <Link to="/" onClick={() => this.props.updateShowInfo(false)}>Go To Personal Collection</Link>
         <SearchBar getSearchResults={this.getSearchResults} />
         <SearchResults
           showInfo={this.props.showInfo}

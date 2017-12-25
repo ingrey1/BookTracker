@@ -37,6 +37,7 @@ class App extends Component {
     this.updateSelectedBook = this.updateSelectedBook.bind(this);
     this.deleteBook = this.deleteBook.bind(this);
     this.getBook = this.getBook.bind(this);
+    this.updateShowInfo = this.updateShowInfo.bind(this);
   
   }
 
@@ -45,6 +46,10 @@ class App extends Component {
     used to select a new book, and close the 'showInfo' popup box of previous book
 
   */
+
+  updateShowInfo(newValue) {
+    this.setState({showInfo: newValue})
+  }
 
   updateSelectedBook(book) {
     if (book != null) {
@@ -187,6 +192,7 @@ class App extends Component {
           path="/search"
           render={() => (
             <Search
+              updateShowInfo={this.updateShowInfo}
               showInfo={this.state.showInfo}
               getBook={this.getBook}
               selectedBook={this.state.selectedBook}
