@@ -7,24 +7,14 @@ import BookInfo from "./BookInfo.js";
 */
 
 const BookMenu = props => {
-  let moveLocations = []; // shelves available for a book to be moved to
-  if (props.bookInfo.shelf === "read") {
-    moveLocations.push("currentlyReading");
-    moveLocations.push("wantToRead");
-  } else if (props.bookInfo.shelf === "currentlyReading") {
-    moveLocations.push("read");
-    moveLocations.push("wantToRead");
-  } else {
-    moveLocations.push("currentlyReading");
-    moveLocations.push("read");
-  }
+
 
   return (
     <div>
       {!props.showInfo && (
         <div id="popUpDiv">
           <select
-            defaultValue="default"
+            defaultValue={props.bookInfo.shelf !== undefined ? props.bookInfo.shelf : "delete"}
             size="4"
             id="popUpSelect"
             onChange={e => {
@@ -33,13 +23,15 @@ const BookMenu = props => {
             }}
           >
             <option value="info">Info</option>
-            <option value="delete">Delete</option>
-            <option value="default" disabled="disabled">
+           
+            <option id="noOption" value="noOption" disabled="disabled">
               Move To
             </option>
-            <option value={moveLocations[0]}>{moveLocations[0]}</option>
-            <option value={moveLocations[1]}>{moveLocations[1]}</option>
-          </select>)
+             <option value="delete">None</option>
+            <option value="read">Read</option>
+            <option value="wantToRead">Want To Read</option>
+            <option value="currentlyReading">Currently Reading</option>
+          </select>
         </div>
       )}
 

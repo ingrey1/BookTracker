@@ -36,9 +36,8 @@ class App extends Component {
     this.updateBookShelf = this.updateBookShelf.bind(this);
     this.updateSelectedBook = this.updateSelectedBook.bind(this);
     this.deleteBook = this.deleteBook.bind(this);
-    this.addBook = this.addBook.bind(this);
     this.getBook = this.getBook.bind(this);
-    this.showCollectionMenu = this.showCollectionMenu.bind(this);
+  
   }
 
   /*
@@ -84,36 +83,9 @@ class App extends Component {
     }
   }
 
-  /*
-  
-    adds book from a general search of available books to the
-    wantToRead shelf of personal collection. 
+ 
 
-  */
 
-  addBook(book) {
-    if (book !== undefined && this.getBook(book.id) === undefined) {
-      book.shelf = "wantToRead";
-
-      this.setState(state => ({
-        selectedBook: null,
-        wantToRead: state.wantToRead.concat([book])
-      }));
-    }
-  }
-
-  /*
-  
-    sets the selectedBook value to current clicked book in searched books, displaying
-    option(s) available for that book
-
-  */
-
-  showCollectionMenu(book) {
-    if (book !== undefined) {
-      this.setState({ selectedBook: book });
-    }
-  }
 
   /*
   
@@ -162,11 +134,21 @@ class App extends Component {
       update(book, newShelf); // update book's shelf in database
 
       // remove book from old shelf, and add book to new shelf
+
+      if (oldShelf !== undefined) {
       this.setState(state => ({
         [newShelf]: state[newShelf].concat([changedBook]),
         [oldShelf]: state[oldShelf].filter(aBook => aBook.id !== book.id),
         selectedBook: null
       }));
+      } else {
+         this.setState(state => ({
+        [newShelf]: state[newShelf].concat([changedBook]),
+        selectedBook: null
+      }));
+      }
+
+
     }
   }
   render() {
@@ -205,10 +187,10 @@ class App extends Component {
           path="/search"
           render={() => (
             <Search
+              showInfo={this.state.showInfo}
               getBook={this.getBook}
-              addBook={this.addBook}
               selectedBook={this.state.selectedBook}
-              bookShelfHandler={this.showCollectionMenu}
+              bookShelfHandler={this.showBookMenu}
               updateSearchStatus={this.updateSearchStatus}
             />
           )}

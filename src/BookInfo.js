@@ -12,14 +12,7 @@ const BookInfo = props => {
  
   return (
     <div id="infoDiv">
-      {props.book.title && (
-        <span>
-          <label className="bookLabel">Title:</label>
-          {props.book.title}
-        </span>
-      )}
-      <br />
-      {props.book.authors.length > 0 && (
+      {props.book.authors !== undefined && props.book.authors.length > 0 && (
         <span>
           <label className="bookLabel">Author(s):</label>
           {props.book.authors.map(author => author + " ")}

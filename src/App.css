@@ -46,3 +46,12 @@ button {
   max-height: 800px;
 }
 
+#noOption {
+  background: yellow;
+  font-weight: bold;
+}
+
+.theTitle {
+  max-width: 100px;
+}
+

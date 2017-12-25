@@ -1,17 +1,14 @@
 import React from 'react'
 import BookMenu from './BookMenu.js'
-import CollectionMenu from './CollectionMenu.js'
+
 
 const Book = (props) => {
 
-	let showMenu = false; // determines whether the personal collection menu is shown
-	let showCollectionMenu = false; // determines whether the general search menu is shown
+	let showMenu = false; // determines whether the book menu is shown
 	// if this book has been clicked
 	if ((props.selectedBook != null) && (props.bookInfo.id === props.selectedBook.id)) {
 		showMenu = true;
 	} 
-	// if this book has been clicked and it currently lives in the general search collection
-	if (props.bookInfo.shelf === undefined) showCollectionMenu = true;
 
 	return (
 
@@ -25,15 +22,18 @@ const Book = (props) => {
 
 
 	   } onClick={() => {
-	   	
+	     	
 	    props.bookShelfHandler(props.bookInfo);
 	    
 	  } 
 
 	     }
-	  /> 
-	    { showMenu && !showCollectionMenu && (<BookMenu showInfo={props.showInfo} bookInfo={props.bookInfo} bookShelfHandler={props.bookShelfHandler} />)}
-	    { showMenu && showCollectionMenu && (<CollectionMenu addBook={props.addBook} bookInfo={props.bookInfo} bookShelfHandler={props.bookShelfHandler} />)}
+	  />
+
+	  <p className="theTitle">{props.bookInfo.title.length > 0 && props.bookInfo.title}</p>
+
+	    { showMenu && (<BookMenu showInfo={props.showInfo} bookInfo={props.bookInfo} bookShelfHandler={props.bookShelfHandler} />)}
+	    
 
 		</li>	
 
